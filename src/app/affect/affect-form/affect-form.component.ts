@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
 import { Patient } from 'src/app/utils/patient.model';
 
 @Component({
-  selector: 'app-affected-form',
-  templateUrl: './affected-form.component.html',
+  selector: 'app-affect-form',
+  templateUrl: './affect-form.component.html'
 })
-export class AffectedFormComponent implements OnInit {
+export class AffectFormComponent implements OnInit {
   @Input() affected: Patient[];
 
   showAlert = false;
@@ -50,4 +50,5 @@ export class AffectedFormComponent implements OnInit {
     this.form.reset();
     this.form.get('location').setValue('');
   }
+
 }

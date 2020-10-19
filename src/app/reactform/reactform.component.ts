@@ -3,10 +3,10 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustormValidators } from '../custom.validator';
 
 @Component({
-  selector: 'app-reactive',
-  templateUrl: './reactive.component.html',
+  selector: 'app-reactform',
+  templateUrl: './reactform.component.html',
 })
-export class ReactiveComponent implements OnInit {
+export class ReactformComponent implements OnInit {
   reactiveForm: FormGroup;
 
   skillsData: Array<{ name: string; value: string }> = [
@@ -71,4 +71,5 @@ export class ReactiveComponent implements OnInit {
     this.reactiveForm.reset();
     this.locationList = [];
   }
+
 }

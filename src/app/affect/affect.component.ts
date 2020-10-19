@@ -5,10 +5,11 @@ import { DataService } from '../data.service';
 import { Patient } from '../utils/patient.model';
 
 @Component({
-  selector: 'app-affected',
-  templateUrl: './affected.component.html',
+  selector: 'app-affect',
+  templateUrl: './affect.component.html',
 })
-export class AffectedComponent implements OnInit {
+export class AffectComponent implements OnInit {
+
   constructor(private dataService: DataService) {}
   affected:Patient[];
   ngOnInit(): void {
@@ -25,4 +26,5 @@ export class AffectedComponent implements OnInit {
       subject.complete();
     });
   }
+
 }

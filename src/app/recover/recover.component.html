@@ -1,0 +1,17 @@
+<div class="container my-4">
+    <div class="starter-template">
+      <h1>Covid Recovered 😃</h1>
+      <p class="lead">
+        These are your Recovered friends in india.<br />
+        Please mark your friends as affected if they are affected again.
+      </p>
+    </div>
+    <div class="row my-5">
+      <div class="col-md-4">
+        <app-recover-form [recovered]="recovered"> </app-recover-form>
+      </div>
+      <div class="col-md-8">
+        <app-table-view [patientData]="recovered" [recoveredMode]="true"> </app-table-view>
+      </div>
+    </div>
+  </div>

@@ -4,11 +4,14 @@ import { concatMap, filter, toArray } from 'rxjs/operators';
 import { BehaviorSubject, from } from 'rxjs';
 import { Patient } from '../utils/patient.model';
 
+
 @Component({
-  selector: 'app-recovered',
-  templateUrl: './recovered.component.html',
+  selector: 'app-recover',
+  templateUrl: './recover.component.html',
+  styleUrls: ['./recover.component.css']
 })
-export class RecoveredComponent implements OnInit {
+export class RecoverComponent implements OnInit {
+
   constructor(private dataService: DataService) {}
   recovered: Patient[];
   ngOnInit(): void {
@@ -24,4 +27,5 @@ export class RecoveredComponent implements OnInit {
       subject.complete();
     });
   }
+
 }

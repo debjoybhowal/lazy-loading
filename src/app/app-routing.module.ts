@@ -1,24 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AffectedComponent } from './affected/affected.component';
-import { ReactiveComponent } from './reactive/reactive.component';
-import { RecoveredComponent } from './recovered/recovered.component';
 
 const routes: Routes = [
-  {
-    path: 'affected',
-    component: AffectedComponent,
-  },
-  {
-    path: 'recovered',
-    component: RecoveredComponent,
-  },{
-    path: 'reactive',
-    component: ReactiveComponent,
-  },
+  
+  { path: 'recover', loadChildren: () => import('./recover/recover.module').then(m => m.RecoverModule) },
+  
+  { path: 'reactform', loadChildren: () => import('./reactform/reactform.module').then(m => m.ReactformModule) },
+  { path: 'affect', loadChildren: () => import('./affect/affect.module').then(m => m.AffectModule) },
   {
     path: '',
-    redirectTo: '/affected',
+    redirectTo: '/affect',
     pathMatch: 'full',
   },
 ];

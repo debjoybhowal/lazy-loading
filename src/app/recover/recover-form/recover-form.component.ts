@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { Patient } from 'src/app/utils/patient.model';
 
 @Component({
-  selector: 'app-recovered-form',
-  templateUrl: './recovered-form.component.html',
+  selector: 'app-recover-form',
+  templateUrl: './recover-form.component.html'
 })
-export class RecoveredFormComponent implements OnInit {
+export class RecoverFormComponent implements OnInit {
+
   @Input('recovered') recovered: Patient[];
   showAlert = false;
   constructor(private dataService: DataService) {}
@@ -36,4 +37,5 @@ export class RecoveredFormComponent implements OnInit {
     );
     this.dataService.removeData(this.recovered);
   }
+
 }
