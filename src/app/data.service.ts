@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ReplaySubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, ReplaySubject } from 'rxjs';
 import { Patient } from './utils/patient.model';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class DataService {
 
   fetchData(): void {
     this.http
-      .get('https://jsonblob.com/api/56dd39e0-03a8-11eb-909d-174cccafc67e')
+      .get('https://debjoyplace.000webhostapp.com/patients.php')
       .subscribe((patientData: Patient[]) => {
         this.data.next(patientData);
         this.globalData = patientData;
@@ -31,6 +31,7 @@ export class DataService {
     });
 
     this.data.next(this.globalData);
+    this.updateData();
   }
   removeData(data: Patient[]): void {
     data.forEach((item: Patient) => {
@@ -40,9 +41,21 @@ export class DataService {
     });
 
     this.data.next(this.globalData);
+    this.updateData();
   }
   addData(data: Patient): void {
     this.globalData = [...this.globalData, data];
     this.data.next(this.globalData);
+    this.updateData();
+  }
+  updateData(): void {
+    this.http
+      .post('https://debjoyplace.000webhostapp.com/updatePatient.php',JSON.stringify(this.globalData))
+      .subscribe((patientData) => {
+        console.log(patientData)
+      }, (err)=>console.log(err));
+  }
+  getPatient(id:number):Observable<Patient>{
+    return this.http.get<Patient>("https://debjoyplace.000webhostapp.com/patients.php?id="+id);
   }
 }

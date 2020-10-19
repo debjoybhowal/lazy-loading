@@ -1,0 +1,31 @@
+<div class="container my-4">
+    <div class="starter-template">
+      <h1>Patient Profile 😀</h1>
+      <p class="lead">
+        This is where you will find the details of each patient
+      </p>
+    </div>
+    <div class="row my-5" *ngIf="patient">
+      <div class="col-md-4">
+          <img [src]="patient.gender=='male'? 'assets/male.png': 'assets/female.png'" class="img img-fluid">
+      </div>
+      <div class="col-md-8">
+        <h4 >ID: <strong class="badge-primary badge">{{patient.id}}</strong></h4>
+          <h1 class="display-3">{{patient.name}}</h1>
+          <h4 class="lead">{{patient.gender=='male'? 'He': 'She'}} lives in Kolkata</h4>
+          <h3>Has {{patient.gender=='male'? 'he': 'she'}} recovered? : <strong class="text-danger" [ngClass]="{'text-danger': patient.isInRecovered, 'text-success':!patient.isInRecovered}">{{patient.isInRecovered? 'YES':'NO'}}</strong></h3>
+          <h3>Is {{patient.gender=='male'? 'he': 'she'}} affected? : <strong class="text-danger" [ngClass]="{'text-danger': !patient.isInRecovered, 'text-success':patient.isInRecovered}">{{patient.isInRecovered? 'NO':'YES'}}</strong></h3>
+      </div>
+    </div>
+    <div class="row justify-content-center margin-y" *ngIf="!patient">
+        <div class="spinner-grow text-warning mx-2 spinner-grow-sm" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning mx-2 spinner-grow-sm" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+  </div>

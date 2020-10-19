@@ -9,3 +9,13 @@
     border: 0;
     box-shadow: none;
 }
+.name-url{
+    color:#272727;
+    text-decoration:none;
+    font-weight: medium;
+    transition: all 0.3s ease;
+}
+.name-url:hover{
+    color:#3857be;
+    font-weight: bold;
+}

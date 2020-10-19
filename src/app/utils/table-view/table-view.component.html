@@ -42,7 +42,7 @@
           </div>
         </th>
         <td>{{ patient.id }}</td>
-        <td>{{ patient.name }}</td>
+        <td><a [routerLink]="['/user',patient.id]" class="name-url">{{ patient.name }}</a></td>
         <td>{{ patient.city }}</td>
         <td>{{ patient.gender == "male" ? "👨🏻" : "👩🏻" }}</td>
       </tr>
